@@ -1,0 +1,5 @@
+{% extends 'immo/base.html' %}
+{% block title %}Dashboard locataire{% endblock %}
+{% block content %}
+<div class="container py-5"><div class="mb-4"><span class="text-gold fw-semibold">{{ role_label }}</span><h1 class="fw-bold">Bienvenue {{ locataire.nom }}</h1></div><div class="row g-4"><div class="col-lg-6"><div class="card border-0 shadow-sm"><div class="card-body"><h2 class="h4">Mes locations</h2>{% include 'immo/table_locations.html' with locations=locations %}</div></div></div><div class="col-lg-6"><div class="card border-0 shadow-sm"><div class="card-body"><h2 class="h4">Logements à louer</h2><div class="list-group">{% for logement in logements %}<a class="list-group-item d-flex justify-content-between" href="{{ logement.get_absolute_url }}"><span>{{ logement.type }} — {{ logement.adresse }}</span><strong>{{ logement.loyer }} FCFA</strong></a>{% empty %}<p>Aucun logement disponible.</p>{% endfor %}</div></div></div></div></div></div>
+{% endblock %}

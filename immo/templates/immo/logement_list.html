@@ -1,0 +1,5 @@
+{% extends 'immo/base.html' %}
+{% block title %}Logements{% endblock %}
+{% block content %}
+<div class="container py-5"><div class="d-flex justify-content-between align-items-center mb-4"><h1 class="fw-bold">Catalogue des logements</h1>{% if user.is_staff %}<a class="btn btn-gold" href="{% url 'logement_create' %}">Ajouter</a>{% endif %}</div><form class="mb-4"><select class="form-select w-auto" name="type" onchange="this.form.submit()"><option value="">Tous les types</option>{% for value,label in types %}<option value="{{ value }}" {% if request.GET.type == value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></form><div class="row g-4">{% for logement in logements %}{% include 'immo/partials_logement_card.html' %}{% empty %}<p>Aucun logement trouvé.</p>{% endfor %}</div></div>
+{% endblock %}

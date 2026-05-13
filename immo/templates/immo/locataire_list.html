@@ -1,0 +1,3 @@
+{% extends 'immo/base.html' %}
+{% block title %}Locataires{% endblock %}
+{% block content %}<div class="container py-5"><h1 class="mb-4">Locataires</h1><div class="card border-0 shadow-sm"><div class="card-body"><table class="table"><thead><tr><th>Nom</th><th>Téléphone</th><th>Email</th></tr></thead><tbody>{% for locataire in locataires %}<tr><td>{{ locataire.nom }}</td><td>{{ locataire.tel }}</td><td>{{ locataire.email }}</td></tr>{% endfor %}</tbody></table></div></div></div>{% endblock %}
