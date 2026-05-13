@@ -1,0 +1,3 @@
+{% extends 'immo/base.html' %}
+{% block title %}Propriétaires{% endblock %}
+{% block content %}<div class="container py-5"><div class="d-flex justify-content-between mb-4"><h1>Propriétaires</h1><a class="btn btn-gold" href="{% url 'proprietaire_create' %}">Ajouter</a></div><div class="card border-0 shadow-sm"><div class="card-body"><table class="table"><thead><tr><th>Nom</th><th>Téléphone</th><th>Email</th><th>Adresse</th></tr></thead><tbody>{% for proprietaire in proprietaires %}<tr><td>{{ proprietaire.nom }}</td><td>{{ proprietaire.tel }}</td><td>{{ proprietaire.email }}</td><td>{{ proprietaire.adresse }}</td></tr>{% endfor %}</tbody></table></div></div></div>{% endblock %}

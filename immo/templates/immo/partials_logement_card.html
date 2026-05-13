@@ -1,0 +1,12 @@
+<div class="col-md-6 col-xl-4">
+  <div class="card h-100 border-0 shadow-sm property-card">
+    {% if logement.image %}<img src="{{ logement.image.photo.url }}" class="card-img-top" alt="{{ logement.type }}">{% else %}<div class="placeholder-img">{{ logement.type }}</div>{% endif %}
+    <div class="card-body">
+      <div class="d-flex justify-content-between"><span class="badge bg-primary-subtle text-primary">{{ logement.type }}</span><span class="fw-bold text-gold">{{ logement.loyer }} FCFA</span></div>
+      <h3 class="h5 mt-3">{{ logement.adresse }}</h3>
+      <p class="text-muted mb-2">{{ logement.surface }} m² • Caution {{ logement.caution }} FCFA</p>
+      <p class="small mb-3">Propriétaire: {{ logement.proprietaire.nom }}</p>
+      <a class="btn btn-navy w-100" href="{{ logement.get_absolute_url }}">Détails</a>
+    </div>
+  </div>
+</div>

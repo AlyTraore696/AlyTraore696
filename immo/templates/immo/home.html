@@ -1,0 +1,32 @@
+{% extends 'immo/base.html' %}
+{% block title %}Accueil - ImmoGestion{% endblock %}
+{% block content %}
+<section class="hero text-white">
+  <div class="container py-5">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-lg-7">
+        <span class="badge rounded-pill bg-gold text-dark mb-3">Gestion locative complète</span>
+        <h1 class="display-4 fw-bold">Louez, suivez et administrez vos logements avec élégance.</h1>
+        <p class="lead mt-3">Une plateforme Django multi-utilisateurs pour administrateurs, locataires et propriétaires.</p>
+        <div class="d-flex gap-3 mt-4"><a class="btn btn-gold btn-lg" href="{% url 'logement_list' %}">Voir les logements</a><a class="btn btn-outline-light btn-lg" href="{% url 'inscription' %}">Créer un compte</a></div>
+      </div>
+      <div class="col-lg-5 mt-5 mt-lg-0">
+        <div class="glass-card p-4">
+          <h2 class="h4">Indicateurs</h2>
+          <div class="row g-3 mt-2">
+            <div class="col-4"><div class="metric"><strong>{{ stats.logements }}</strong><span>Logements</span></div></div>
+            <div class="col-4"><div class="metric"><strong>{{ stats.proprietaires }}</strong><span>Propriétaires</span></div></div>
+            <div class="col-4"><div class="metric"><strong>{{ stats.locations }}</strong><span>Locations</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4"><h2 class="fw-bold">Logements disponibles</h2><a href="{% url 'logement_list' %}" class="link-primary">Tout voir</a></div>
+  <div class="row g-4">
+    {% for logement in logements %}{% include 'immo/partials_logement_card.html' %}{% empty %}<p>Aucun logement disponible pour le moment.</p>{% endfor %}
+  </div>
+</section>
+{% endblock %}

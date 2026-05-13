@@ -1,0 +1,14 @@
+{% extends 'immo/base.html' %}
+{% block title %}Dashboard admin{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <div class="d-flex flex-column flex-md-row justify-content-between gap-3 mb-4"><div><span class="text-gold fw-semibold">{{ role_label }}</span><h1 class="fw-bold">Tableau de bord global</h1></div><div class="d-flex gap-2"><a class="btn btn-navy" href="{% url 'proprietaire_create' %}">Ajouter propriétaire</a><a class="btn btn-gold" href="{% url 'logement_create' %}">Ajouter logement</a></div></div>
+  <div class="row g-3 mb-4">
+    <div class="col-md-3"><div class="stat-card"><span>Utilisateurs</span><strong>{{ total_users }}</strong></div></div>
+    <div class="col-md-3"><div class="stat-card"><span>Propriétaires</span><strong>{{ total_proprietaires }}</strong></div></div>
+    <div class="col-md-3"><div class="stat-card"><span>Logements</span><strong>{{ total_logements }}</strong></div></div>
+    <div class="col-md-3"><div class="stat-card"><span>Locations</span><strong>{{ total_locations }}</strong></div></div>
+  </div>
+  <div class="row g-4"><div class="col-lg-7"><div class="card border-0 shadow-sm"><div class="card-body"><h2 class="h4">Dernières locations</h2>{% include 'immo/table_locations.html' with locations=recent_locations %}</div></div></div><div class="col-lg-5"><div class="card border-0 shadow-sm"><div class="card-body"><h2 class="h4">Actions rapides</h2><div class="list-group"><a class="list-group-item" href="{% url 'proprietaire_list' %}">Gérer les propriétaires</a><a class="list-group-item" href="{% url 'locataire_list' %}">Voir les locataires</a><a class="list-group-item" href="{% url 'location_list' %}">Superviser les locations</a><a class="list-group-item" href="/admin/">Administration Django</a></div></div></div></div></div>
+</div>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends 'immo/base.html' %}
+{% block title %}Connexion{% endblock %}
+{% block content %}
+<div class="container py-5"><div class="row justify-content-center"><div class="col-md-6 col-lg-5"><div class="card border-0 shadow-lg"><div class="card-body p-4"><h1 class="h3 fw-bold mb-4">Connexion</h1><form method="post">{% csrf_token %}{{ form.as_p }}<button class="btn btn-navy w-100">Se connecter</button></form><p class="mt-3 mb-0">Pas de compte ? <a href="{% url 'inscription' %}">Inscrivez-vous</a></p></div></div></div></div></div>
+{% endblock %}
